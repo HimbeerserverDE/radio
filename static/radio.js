@@ -3,7 +3,7 @@ async function play() {
 	xhr.open("GET", "/song");
 	xhr.onload = _ => {
 		let audio = document.querySelector("#audio");
-		audio.src = "/static/song/" + song;
+		audio.src = "/static/song/" + xhr.responseText;
 		audio.play();
 	};
 	xhr.send();
