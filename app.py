@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import random
 import subprocess
 from flask import Flask, abort, redirect, url_for
@@ -12,9 +13,7 @@ def index():
 
 @app.route("/song")
 def song():
-    cmd   = 'ls -1 static/song'
-    proc  = subprocess.run(cmd, shell=True, text=True, stdout=subprocess.PIPE)
-    files = proc.stdout.splitlines()
+    files = os.listdir('static/song')
 
     try:
         return random.choice(files)
