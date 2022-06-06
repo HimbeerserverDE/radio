@@ -10,8 +10,10 @@ async function play() {
 			document.querySelector("#title").innerText = xhr.responseText;
 		} else if (xhr.status === 404) {
 			alert("No songs found!");
+			document.querySelector("#title").innerText = "--- (no songs available)";
 		} else {
 			alert("Unknown error!");
+			document.querySelector("#title").innerText = "--- (unknown error)";
 		}
 	};
 	xhr.send();
